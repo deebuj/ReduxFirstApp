@@ -1,2 +1,0 @@
-# ReduxFirstApp
-Created with CodeSandbox
