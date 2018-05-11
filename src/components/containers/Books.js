@@ -28,31 +28,33 @@ class Books extends React.Component {
       <div>
         <div>
           <table>
-            <tr>
-              <td>Title</td>
-              <td>
-                <input type="text" name="title" onChange={this.setData} />
-              </td>
-            </tr>
-            <tr>
-              <td>Author</td>
-              <td>
-                <input type="text" name="author" onChange={this.setData} />
-              </td>
-            </tr>
-            <tr>
-              <td />
-              <td>
-                <input
-                  type="button"
-                  value="Add"
-                  //onClick={() => this.dispatchAction(types.ADD_BOOK)}
-                  onClick={this.addBook}
-                  className="icon fa fa-trash"
-                  aria-hidden="true"
-                />
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>Title</td>
+                <td>
+                  <input type="text" name="title" onChange={this.setData} />
+                </td>
+              </tr>
+              <tr>
+                <td>Author</td>
+                <td>
+                  <input type="text" name="author" onChange={this.setData} />
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <input
+                    type="button"
+                    value="Add"
+                    //onClick={() => this.dispatchAction(types.ADD_BOOK)}
+                    onClick={this.addBook}
+                    className="icon fa fa-trash"
+                    aria-hidden="true"
+                  />
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
 

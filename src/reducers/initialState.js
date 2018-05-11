@@ -1,5 +1,6 @@
 //define the initial state
 const initialState = {
+  users: [],
   books: [
     {
       id: 1,

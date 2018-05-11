@@ -11,6 +11,9 @@ function BooksApp(state = initialState, action) {
     case types.DELETE_BOOK:
       console.log("not implemented yet");
       return state;
+    case types.FETCH_USER_SUCCEEDED:
+      console.log(action.payload);
+      return { ...state, users: [...state.users, ...action.payload.response] };
     default:
       return state;
   }
