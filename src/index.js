@@ -6,7 +6,7 @@ import MyComponent from "./components/MyComponent";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 //Bookstore stuff
-import BooksApp from "./reducers/BooksApp";
+import rootReducer from "./reducers";
 import Books from "./components/containers/Books";
 
 const styles = {
@@ -15,15 +15,11 @@ const styles = {
 };
 
 //initialize store
-let store = createStore(BooksApp);
-console.log(store.getState());
+let store = createStore(rootReducer);
 
 const App = () => (
   <div style={styles}>
-    <Books store={store} />
-    <MyComponent data1="passdata" />
-    <Hello name="CodeSandbox" />
-    <h2>Start editing to see some magic happen {"\u2728"}</h2>
+    <Books />
   </div>
 );
 

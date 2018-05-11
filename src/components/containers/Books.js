@@ -9,21 +9,55 @@ import * as types from "../../actions/ActionTypes";
 class Books extends React.Component {
   constructor(props, context) {
     super(props, context);
+    this.state = {
+      book: {}
+    };
     this.addBook = this.addBook.bind(this);
   }
+
+  setData = e => {
+    let newBook = { ...this.state.book };
+    newBook[e.target.name] = e.target.value;
+    this.setState({ book: newBook });
+  };
+
   componentWillMount() {}
+
   render() {
     return (
       <div>
-        <input
-          type="button"
-          value="Add"
-          //onClick={() => this.dispatchAction(types.ADD_BOOK)}
-          onClick={this.addBook}
-          className="icon fa fa-trash"
-          aria-hidden="true"
-        />
         <div>
+          <table>
+            <tr>
+              <td>Title</td>
+              <td>
+                <input type="text" name="title" onChange={this.setData} />
+              </td>
+            </tr>
+            <tr>
+              <td>Author</td>
+              <td>
+                <input type="text" name="author" onChange={this.setData} />
+              </td>
+            </tr>
+            <tr>
+              <td />
+              <td>
+                <input
+                  type="button"
+                  value="Add"
+                  //onClick={() => this.dispatchAction(types.ADD_BOOK)}
+                  onClick={this.addBook}
+                  className="icon fa fa-trash"
+                  aria-hidden="true"
+                />
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div>
+          <h2>Book List</h2>
           {this.props.books.map(book => <BookCard key={book.id} Book={book} />)}
         </div>
       </div>
@@ -31,15 +65,7 @@ class Books extends React.Component {
   }
 
   addBook = () => {
-    var newbook = {
-      id: 3,
-      cover:
-        "https://s3.amazonaws.com/titlepages.leanpub.com/reactjsforthevisuallearner/hero?1496374274",
-      title: "React.js for the Visual Learner",
-      author: "Mike Mangialardi",
-      link: "https://leanpub.com/reactjsforthevisuallearner"
-    };
-    this.props.actions.bookActions.AddBook(newbook);
+    this.props.actions.bookActions.AddBook(this.state.book);
   };
 }
 

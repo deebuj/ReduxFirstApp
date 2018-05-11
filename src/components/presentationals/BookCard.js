@@ -5,10 +5,15 @@ class BookCard extends React.Component {
   render() {
     return (
       <div>
-        <img style={{ width: 250, height: 323 }} src={this.props.Book.cover} />
-        <h2>{this.props.Book.title}</h2>
-        <h3>{this.props.Book.author}</h3>
+        <img style={{ width: 50, height: 50 }} src={this.props.Book.cover} />
+        <div>
+          <strong>{this.props.Book.title}</strong>
+        </div>
+        <div>
+          <strong>{this.props.Book.author}</strong>
+        </div>
         <a href={this.props.Book.link}>{this.props.Book.link}</a>
+        <hr />
       </div>
     );
   }
