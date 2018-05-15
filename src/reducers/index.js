@@ -13,7 +13,11 @@ function BooksApp(state = initialState, action) {
       return state;
     case types.FETCH_USER_SUCCEEDED:
       console.log(action.payload);
-      return { ...state, users: [...state.users, ...action.payload.response] };
+      //return { ...state, users: [...state.users, ...action.payload.response] };
+      return { ...state, users: [...action.payload.response], posts: [] };
+    case types.FETCH_USER_POSTS_SUCCEEDED:
+      console.log(action.payload);
+      return { ...state, posts: [...action.payload.response] };
     default:
       return state;
   }
