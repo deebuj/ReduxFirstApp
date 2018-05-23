@@ -6,10 +6,11 @@ export function getUsers() {
   };
 }
 
-export function getPosts(id) {
+export function getPosts(id, anotherVal) {
   console.log("get posts");
   return {
     type: types.FETCH_USER_POSTS_REQUESTED,
-    id: id
+    id: id,
+    anotherVal: anotherVal
   };
 }

@@ -33,7 +33,7 @@ class UserList extends React.Component {
         <div>
           <h2>Posts</h2>
           {this.props.posts.map(post => (
-            <div id={post.id}>
+            <div key={post.id}>
               <h3>{post.title}</h3>
               <p>{post.body}</p>
             </div>
